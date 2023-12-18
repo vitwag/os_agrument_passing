@@ -137,15 +137,16 @@ start_process (void *file_name_)
   success = load (cmd_name, &if_.eip, &if_.esp);
   if (success) {
     construct_esp(file_name, &if_.esp);
-    
-    //hex_dump(if_.esp, if_.esp, PHYS_BASE - if_.esp, true);
   }
   /* If load failed, quit. */
+  hex_dump(if_.esp, if_.esp, PHYS_BASE - if_.esp, true); // Print memory dump in hexadecimal form
   palloc_free_page (file_name);
+  /* If load failed, quit. */
   if (!success)
   {
-    thread_exit ();
-}
+    thread_exit();
+  }
+
   /* Start the user process by simulating a return from an
      interrupt, implemented by intr_exit (in
      threads/intr-stubs.S).  Because intr_exit takes all of its
