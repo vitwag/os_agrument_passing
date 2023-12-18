@@ -1,7 +1,7 @@
 #! /bin/sh
 
 # Path to GDB macros file.  Customize for your site.
-GDBMACROS=/home/quang/OS_assignment/pintos_Argument_passing/src/misc/gdb-macros
+GDBMACROS=/home/quang/pintos_Argument_passing/src/misc/gdb-macros
 
 # Choose correct GDB.
 if command -v i386-elf-gdb >/dev/null 2>&1; then
